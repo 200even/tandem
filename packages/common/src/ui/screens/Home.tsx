@@ -1,32 +1,42 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {StatTile} from '../components/StatTile';
+import {Button} from '../components/Button';
 import colors from '../colors.json';
-import {Button} from "../components/Button";
+import {getStatistics} from '../../services/statistics.service';
 
 export const Home: React.FC = () => {
-  const [stats, setStats] = useState([
-    {
-      name: 'Mean',
-      value: '0',
-      color: colors.passionRed,
-    },
-    {
-      name: 'Median',
-      value: '0',
-      color: colors.ultraViolet,
-    },
-    {
-      name: 'Standard Deviation',
-      value: '0',
-      color: colors.urbanCity,
-    },
-    {
-      name: 'Mode',
-      value: '0',
-      color: colors.blueYonder,
-    },
-  ]);
+  const [stats, setStats] = useState([{name: 'Mean', value: '0', color: colors.urbanCity}]);
+
+  useEffect(() => {
+    refreshStats();
+  }, []);
+
+  const refreshStats = async() => {
+    const {mean, median, standardDeviation, mode} = await getStatistics();
+    setStats([
+      {
+        name: 'Mean',
+        value: mean,
+        color: colors.passionRed,
+      },
+      {
+        name: 'Median',
+        value: median,
+        color: colors.ultraViolet,
+      },
+      {
+        name: 'Standard Deviation',
+        value: standardDeviation,
+        color: colors.urbanCity,
+      },
+      {
+        name: 'Mode',
+        value: mode,
+        color: colors.blueYonder,
+      },
+    ])
+  };
 
   return (
     <ScrollView>
@@ -37,7 +47,7 @@ export const Home: React.FC = () => {
         })}
       </View>
       <View style={styles.buttonContainer}>
-        <Button label='Refresh' onPress={() => console.log('Button clicked')} />
+        <Button label='Refresh' onPress={refreshStats} />
       </View>
     </ScrollView>
   )
