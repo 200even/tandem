@@ -5,11 +5,13 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "pod:install": "npx pod-install",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.11.0",
     "react": "16.13.1",
     "react-native": "0.63.0"
   },
@@ -43,6 +45,6 @@
     ]
   },
   "workspaces": {
-    "nohoist": ["react", "react/**","react-native", "react-native/**"]
+    "nohoist": ["@react-native-community/async-storage", "react", "react/**","react-native", "react-native/**"]
   }
 }

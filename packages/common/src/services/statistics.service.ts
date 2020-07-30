@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-community/async-storage';
 import {calculateMean, calculateMedian, calculateMode, calculateStandardDeviation} from "../utils/calculate";
 import firstDataSet from '../data/data-1234.json';
 
@@ -7,6 +8,8 @@ export const getStatistics = async () => {
     const response = await fetch('http://localhost:8888/getNumbers')
         .catch(() => ({json: () => firstDataSet}));
     const {data} = await response.json();
+
+    await AsyncStorage.setItem('numbers', data.toString());
     const mean = calculateMean(data).toFixed(6);
     const median = calculateMedian(data).toFixed(6);
     const standardDeviation = calculateStandardDeviation(data).toFixed(6);
