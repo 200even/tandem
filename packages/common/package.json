@@ -1,0 +1,20 @@
+{
+  "name": "@tandem/common",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "Scott Ferguson",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "test": "react-scripts test"
+  },
+  "devDependencies": {
+    "@types/react-native": "^0.63.2",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-native": "^0.63.2",
+    "typescript": "^3.9.7"
+  }
+}

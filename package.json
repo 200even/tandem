@@ -1,0 +1,11 @@
+{
+  "name": "tandem-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Scott Ferguson",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
