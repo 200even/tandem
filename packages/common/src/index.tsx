@@ -1,16 +1,16 @@
 import React from 'react';
 import {
     SafeAreaView,
-    Text,
     StatusBar,
 } from 'react-native';
+import {Home} from "./ui/screens/Home";
 
 export const App = () => {
     return (
         <>
             <StatusBar barStyle="dark-content" />
             <SafeAreaView>
-                <Text>Hello Tandem</Text>
+                <Home />
             </SafeAreaView>
         </>
     );

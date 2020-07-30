@@ -10,11 +10,11 @@
   },
   "devDependencies": {
     "@types/react-native": "^0.63.2",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "react": "^16.13.1",
-    "react-native": "^0.63.2",
-    "typescript": "^3.9.7"
+    "react-native": "^0.63.2"
   }
 }
