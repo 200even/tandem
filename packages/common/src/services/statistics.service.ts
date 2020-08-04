@@ -9,7 +9,7 @@ export const getStatistics = async () => {
         .catch(() => ({json: () => firstDataSet}));
     const {data} = await response.json();
 
-    await AsyncStorage.setItem('numbers', data.toString());
+    // await AsyncStorage.setItem('numbers', data.toString());
     const mean = calculateMean(data).toFixed(6);
     const median = calculateMedian(data).toFixed(6);
     const standardDeviation = calculateStandardDeviation(data).toFixed(6);
